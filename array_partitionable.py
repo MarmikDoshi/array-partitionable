@@ -28,11 +28,10 @@ class PartitionableList:
         previous_comp = dict()
         check_sum = self.total_sum // 2
 
-        for i in self.data[:-1]:
-            if i in previous_comp or i == check_sum:
+        for i in self.data:
+            if (check_sum - i) in previous_comp or i == check_sum:
                 return True
             previous_comp[i] = check_sum - i
-            print(previous_comp)
         if self.data[-1] == check_sum:
             return True
         return False
